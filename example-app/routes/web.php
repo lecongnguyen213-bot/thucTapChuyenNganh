@@ -12,6 +12,12 @@ Route::get('/cart', function () {
 Route::get('/about', function () {
     return view('about');
 })->name('about');
+Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');

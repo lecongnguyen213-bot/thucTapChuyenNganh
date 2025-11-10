@@ -12,7 +12,7 @@
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 
-    <base href="{{ asset('public/') }}">
+    <base href="{{ asset('') }}">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -50,7 +50,7 @@
 					</div>
 					<div class="col-md-6">
 						<div class="right-element">
-							<a href="#" class="user-account for-buy"><i
+							<a href="{{asset('login')}}" class="user-account for-buy"><i
 									class="icon icon-user"></i><span>Account</span></a>
 							<a href="{{ route('cart') }}"><i class="icon icon-clipboard"></i><span>Cart:(0
 									$)</span></a>
@@ -91,25 +91,9 @@
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
-									<li class="menu-item active"><a href="{{ route('home') }}">Home</a></li>
-									<li class="menu-item has-sub">
-										<a href="#pages" class="nav-link">Pages</a>
-
-										<ul>
-											<li class="active"><a href="{{ route('home') }}">Home</a></li>
-											<li><a href="{{ route('about') }}">About</a></li>
-											<li><a href="index.html">Styles</a></li>
-											<li><a href="index.html">Blog</a></li>
-											<li><a href="index.html">Post Single</a></li>
-											<li><a href="index.html">Our Store</a></li>
-											<li><a href="index.html">Product Single</a></li>
-											<li><a href="index.html">Contact</a></li>
-											<li><a href="index.html">Thank You</a></li>
-										</ul>
-
-									</li>
-									<li class="menu-item"><a href="#featured-books" class="nav-link">Featured</a></li>
-									<li class="menu-item"><a href="#popular-books" class="nav-link">Popular</a></li>
+									<li><a href="{{ route('home') }}">Home</a></li>
+									<li><a href="{{ route('about') }}" class="nav-link">About</a></li>
+									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
 									<li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>
 									<li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
 									<li class="menu-item"><a href="#download-app" class="nav-link">Download App</a></li>

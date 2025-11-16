@@ -94,9 +94,9 @@
 									<li><a href="{{ route('home') }}">Home</a></li>
 									<li><a href="{{ route('about') }}" class="nav-link">About</a></li>
 									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
-									<li class="menu-item"><a href="#special-offer" class="nav-link">Offer</a></li>
-									<li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li>
-									<li class="menu-item"><a href="#download-app" class="nav-link">Download App</a></li>
+									<li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
+									<!-- <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li> -->
+									<li><a href="{{ route('customer') }}" class="nav-link">Customer</a></li>
 								</ul>
 
 								<div class="hamburger">

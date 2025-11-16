@@ -15,6 +15,12 @@ Route::get('/about', function () {
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
+Route::get('/customer', function () {
+    return view('customer');
+})->name('customer');
 Route::get('/login', function () {
     return view('login');
 })->name('login');

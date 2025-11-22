@@ -33,3 +33,6 @@ Route::get('/admin/product-list', function () {
 Route::get('/admin/category', function () {
     return view('admin/category');
 })->name('category');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

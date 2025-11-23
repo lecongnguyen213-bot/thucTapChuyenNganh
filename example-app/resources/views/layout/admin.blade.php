@@ -110,8 +110,8 @@
                   <ul class="nav nav-collapse">
                     
                     <li>
-                      <a href="{{route('product-list')}}">
-                        <span class="sub-item">Product-List</span>
+                      <a href="{{route('product')}}">
+                        <span class="sub-item">Product</span>
                       </a>
                     </li>
                     <li>

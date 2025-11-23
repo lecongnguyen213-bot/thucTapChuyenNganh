@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthConTroller;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\ProductController;
 Route::get('/', function () {
     return view('index');
 })->name('home');
@@ -29,12 +31,8 @@ Route::get('/contact', function () {
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');
-Route::get('/admin/product-list', function () {
-    return view('admin/product-list');
-})->name('product-list');
-Route::get('/admin/category', function () {
-    return view('admin/category');
-})->name('category');
+Route::get('/admin/product', [ProductController::class, 'index'])->name('product');
+Route::get('/admin/category', [CategoryController::class, 'index'])->name('category');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

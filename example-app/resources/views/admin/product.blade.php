@@ -4,7 +4,7 @@
     <<div class="card-footer small text-muted">
 
     <table class="table">
-        <h3>Category </h3>
+        <h3>Product </h3>
         <a href="" class="btn btn-primary">Add</a>  
   <thead>
     <tr>
@@ -18,10 +18,10 @@
     </tr>
   </thead>
   <tbody>
-    @forelse($categories as $category)
+    @forelse($products as $prod)
 <tr>
-    <th>{{ $category->id }}</th>
-    <td>{{ $category->name }}</td>
+    <th>{{ $prod->id }}</th>
+    <td>{{ $prod->name }}</td>
 </tr>
 @empty
     <h3>Chưa có dữ liệu</h3>

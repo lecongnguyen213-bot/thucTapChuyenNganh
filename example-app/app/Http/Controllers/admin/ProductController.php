@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Category;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Auth;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     public function __construct()
     {
@@ -15,13 +15,13 @@ class CategoryController extends Controller
         $this->middleware('auth');   
 
         // Share biến cho tất cả view
-        $categories = Category::all();
-        view()->share('categories', $categories);
+        $products = Product::all();
+        view()->share('product', $products);
     }
 
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category', compact('categories'));
+        $products = Product::all();
+        return view('admin.product', compact('products'));
     }
 }

@@ -1,5 +1,6 @@
 @extends('layout/admin')
 @section('body')
+{{dd('$categories')}}
     <<div class="card-footer small text-muted">
 
     <table class="table">

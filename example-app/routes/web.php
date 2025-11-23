@@ -1,11 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthConTroller;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\Auth\LoginController;
 Route::get('/', function () {
     return view('index');
 })->name('home');
+//chuyển hướng page home->register->login->admin
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('/adminpage', [AdminController::class, 'index'])->name('adminpage')->middleware('auth');
 
+//home page routes
 Route::get('/cart', function () {
     return view('cart');
 })->name('cart');
@@ -18,12 +24,8 @@ Route::get('/blog', function () {
 Route::get('/contact', function () {
     return view('contact');
 })->name('contact');
-Route::get('/customer', function () {
-    return view('customer');
-})->name('customer');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
+
+//admin page routes
 Route::get('/admin', function () {
     return view('admin');
 })->name('admin');

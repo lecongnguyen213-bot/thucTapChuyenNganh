@@ -48,10 +48,10 @@
 							</ul>
 						</div><!--social-links-->
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-6">	
 						<div class="right-element">
 							<a href="{{asset('login')}}" class="user-account for-buy"><i
-									class="icon icon-user"></i><span>Account</span></a>
+									class="icon icon-user"></i><span>Login</span></a>
 							<a href="{{ route('cart') }}"><i class="icon icon-clipboard"></i><span>Cart:(0
 									$)</span></a>
 
@@ -96,7 +96,7 @@
 									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
 									<li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
 									<!-- <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li> -->
-									<li><a href="{{ route('customer') }}" class="nav-link">Customer</a></li>
+									<li><a href="{{ route('adminpage') }}" class="nav-link">AdminPage</a></li>
 								</ul>
 
 								<div class="hamburger">

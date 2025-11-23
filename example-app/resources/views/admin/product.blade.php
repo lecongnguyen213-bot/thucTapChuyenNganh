@@ -1,15 +1,15 @@
 @extends('layout/admin')
 @section('body')
 
-    <<div class="card-footer small text-muted">
+    <div class="card-footer small text-muted">
 
     <table class="table">
         <h3>Product </h3>
         <a href="" class="btn btn-primary">Add</a>  
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
+      <th scope="col">#ID</th>
+      <th scope="col">Name</th>
       <!-- <th scope="col">Last</th> -->
       <!-- <th scope="col">Handle</th>
       <th scope="col">View</th>

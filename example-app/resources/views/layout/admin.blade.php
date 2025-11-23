@@ -119,40 +119,42 @@
                         <span class="sub-item">Category</span>
                       </a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href="components/panels.html">
                         <span class="sub-item">Panels</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="components/notifications.html">
                         <span class="sub-item">Notifications</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="components/sweetalert.html">
                         <span class="sub-item">Sweet Alert</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="components/font-awesome-icons.html">
                         <span class="sub-item">Font Awesome Icons</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="components/simple-line-icons.html">
                         <span class="sub-item">Simple Line Icons</span>
                       </a>
-                    </li>
-                    <li>
+                    </li> -->
+                    <!-- <li>
                       <a href="components/typography.html">
                         <span class="sub-item">Typography</span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"><h8>Comment list item (dong 155)</h8></li>
+    <!--List item menu admin page (the li/item)-->
+              <!-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
                   <p>Sidebar Layouts</p>
@@ -316,7 +318,7 @@
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -335,7 +337,7 @@
                   class="navbar-brand"
                   height="20"
                 />
-              </a>
+              123</a>
               <div class="nav-toggle">
                 <button class="btn btn-toggle toggle-sidebar">
                   <i class="gg-menu-right"></i>
@@ -411,36 +413,6 @@
         <div class="container">
             @yield('body')
         </div>
-
-        <footer class="footer">
-          <div class="container-fluid d-flex justify-content-between">
-            <nav class="pull-left">
-              <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="http://www.themekita.com">
-                    ThemeKita
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Help </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> Licenses </a>
-                </li>
-              </ul>
-            </nav>
-            <div class="copyright">
-              2024, made with <i class="fa fa-heart heart text-danger"></i> by
-              <a href="http://www.themekita.com">ThemeKita</a>
-            </div>
-            <div>
-              Distributed by
-              <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
-            </div>
-          </div>
-        </footer>
-      </div>
-
       <!-- Custom template | don't include it in your project! -->
       <div class="custom-template">
         <div class="title">Settings</div>
@@ -655,9 +627,8 @@
 
     <!-- Datatables -->
     <script src="assets/js/plugin/datatables/datatables.min.js"></script>
-
     <!-- Bootstrap Notify -->
-    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <!-- <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>  -->
 
     <!-- jQuery Vector Maps -->
     <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>

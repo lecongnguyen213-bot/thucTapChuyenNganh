@@ -401,10 +401,16 @@
                   </ul>
                 </li>
                 <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a
-                    href="{{route('logout')}}"
-                  >Logout
-                  </a>
+               <li class="nav-item topbar-icon dropdown hidden-caret">
+    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+        Logout
+    </a>
+</li>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+</form>
+
             </div>
           </nav>
           <!-- End Navbar -->

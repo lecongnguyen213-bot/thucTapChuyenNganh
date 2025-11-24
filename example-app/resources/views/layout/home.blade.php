@@ -96,7 +96,7 @@
 									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
 									<li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
 									<!-- <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li> -->
-									<li><a href="{{ route('adminpage') }}" class="nav-link">AdminPage</a></li>
+									<li><a href="{{ route('admin') }}" class="nav-link">AdminPage</a></li>
 								</ul>
 
 								<div class="hamburger">

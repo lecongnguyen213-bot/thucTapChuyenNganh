@@ -1,38 +1,37 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthConTroller;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
+
+// Trang chủ
 Route::get('/', function () {
     return view('index');
 })->name('home');
-//chuyển hướng page home->register->login->admin
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
-Route::get('/adminpage', [AdminController::class, 'index'])->name('adminpage')->middleware('auth');
 
-//home page routes
-Route::get('/cart', function () {
-    return view('cart');
-})->name('cart');
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');
-Route::get('/contact', function () {
-    return view('contact');
-})->name('contact');
-
-//admin page routes
-Route::get('/admin', function () {
-    return view('admin');
-})->name('admin');
-Route::get('/admin/product', [ProductController::class, 'index'])->name('product');
-Route::get('/admin/category', [CategoryController::class, 'index'])->name('category');
+// Auth routes laravel
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Logout dùng POST (đúng chuẩn Laravel)
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+// ADMIN — phải đăng nhập mới vào được
+Route::middleware('auth')->group(function () {
+
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+
+    Route::get('/admin/product', [ProductController::class, 'index'])->name('product');
+
+    Route::get('/admin/category', [CategoryController::class, 'index'])->name('category');
+});
+
+// Các trang home
+Route::get('/cart', fn() => view('cart'))->name('cart');
+Route::get('/about', fn() => view('about'))->name('about');
+Route::get('/blog', fn() => view('blog'))->name('blog');
+Route::get('/contact', fn() => view('contact'))->name('contact');
+
+// Route mặc định của Laravel
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

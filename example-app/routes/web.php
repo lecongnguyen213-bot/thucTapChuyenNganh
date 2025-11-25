@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/cart', fn() => view('cart'))->name('cart');
 Route::get('/about', fn() => view('about'))->name('about');
 Route::get('/blog', fn() => view('blog'))->name('blog');
+Route::get('/single-blog', fn() => view('single-blog'))->name('single-blog');
 Route::get('/contact', fn() => view('contact'))->name('contact');
 //-----------------------------------------------------------//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);

@@ -19,7 +19,7 @@
 									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
 									urna, a eu.</p>
 								<div class="btn-wrap">
-									<a href="#" class="btn btn-outline-accent btn-accent-arrow">Read More<i
+									<a href="{{ route('single-blog') }}" class="btn btn-outline-accent btn-accent-arrow">Read More<i
 											class="icon icon-ns-arrow-right"></i></a>
 								</div>
 							</div><!--banner-content-->

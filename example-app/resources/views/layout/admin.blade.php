@@ -119,6 +119,11 @@
                         <span class="sub-item">Category</span>
                       </a>
                     </li>
+                    <li>
+                      <a href="{{route('shop')}}">
+                        <span class="sub-item">Shop</span>
+                      </a>
+                    </li>
                     <!-- <li>
                       <a href="components/panels.html">
                         <span class="sub-item">Panels</span>
@@ -402,15 +407,13 @@
                 </li>
                 <li class="nav-item topbar-icon dropdown hidden-caret">
                <li class="nav-item topbar-icon dropdown hidden-caret">
-    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-        Logout
-    </a>
-</li>
-
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-    @csrf
-</form>
-
+                  <a href="#" onclick="event.preventDefault(); 
+                  document.getElementById('logout-form').submit();">Logout
+                  </a>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </div>
           </nav>
           <!-- End Navbar -->

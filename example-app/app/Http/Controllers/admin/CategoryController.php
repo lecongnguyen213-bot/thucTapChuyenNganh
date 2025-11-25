@@ -18,10 +18,29 @@ class CategoryController extends Controller
         $categories = Category::all();
         view()->share('categories', $categories);
     }
-
+    
     public function index()
     {
         $categories = Category::all();
         return view('admin.category', compact('categories'));
     }
+    public function create()
+    {
+        return view('admin.add');
+    }
+    public function store(Request $request)
+    {
+        $categories =Category::create(
+            [
+                'name'=>$request->name, //ten database
+            ]
+        );
+        if ($categories) {
+             return redirect()->route('category.index');
+            }
+        else {
+            return back();  
+        }
+    }    
 }
+    

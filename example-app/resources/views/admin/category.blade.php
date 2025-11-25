@@ -5,7 +5,7 @@
 
     <table class="table">
         <h3>Category </h3>
-        <a href="" class="btn btn-primary">Add</a>  
+        <a href="{{route('category.create')}}" class="btn btn-primary">Add</a>  
   <thead>
     <tr>
       <th scope="col">#ID</th>

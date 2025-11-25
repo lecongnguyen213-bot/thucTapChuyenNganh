@@ -115,7 +115,7 @@
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('category')}}">
+                      <a href="{{route('category.index')}}">
                         <span class="sub-item">Category</span>
                       </a>
                     </li>

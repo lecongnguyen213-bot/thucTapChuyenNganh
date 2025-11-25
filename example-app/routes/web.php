@@ -17,14 +17,24 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // admin — phải đăng nhập mới vào được
 Route::middleware('auth')->group(function () {
 
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin/product', [ProductController::class, 'index'])
+        ->name('product');
 
-    Route::get('/admin/product', [ProductController::class, 'index'])->name('product');
-
-    Route::get('/admin/category', [CategoryController::class, 'index'])->name('category');
-    Route::get('/admin/shop', [ShopController::class, 'index'])->name('shop');
+    Route::get('/admin/shop', [ShopController::class, 'index'])
+        ->name('shop');
+    Route::get('/admin', [AdminController::class, 'index'])
+        ->name('admin');
+     Route::resource('category', CategoryController::class);
 });
+// Nhóm route admin
+// Route::group([
+//         'prefix' => 'admin',
+//         'as' => 'admin.',
+//         'namespace' => 'admin'
+//     ], function () {
 
+       
+//     });
 // Các trang home
 Route::get('/cart', fn() => view('cart'))->name('cart');
 Route::get('/about', fn() => view('about'))->name('about');

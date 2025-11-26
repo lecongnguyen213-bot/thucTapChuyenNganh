@@ -13,7 +13,6 @@ class AdminController extends Controller
         // Bắt buộc đăng nhập mới vào admin được
         $this->middleware('auth');
     }
-
     public function index()
     {
         return view('layout.admin'); // đúng đường dẫn view

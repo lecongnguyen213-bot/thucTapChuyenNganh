@@ -110,17 +110,17 @@
                   <ul class="nav nav-collapse">
                     
                     <li>
-                      <a href="{{route('product')}}">
+                      <a href="{{route('admin.product.index')}}">
                         <span class="sub-item">Product</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('category.index')}}">
+                      <a href="{{route('admin.category.index')}}">
                         <span class="sub-item">Category</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('shop')}}">
+                      <a href="{{route('admin.shop')}}">
                         <span class="sub-item">Shop</span>
                       </a>
                     </li>

@@ -2,7 +2,7 @@
 @section('body')
 <div class="container">
    <div class="row">
-      <form action="{{ route('category.store') }}" method="POST">
+      <form action="{{ route('admin.category.store') }}" method="POST">
           @csrf
           <div class="mb-3">
               <label class="form-label">Category name</label>

@@ -37,7 +37,7 @@
               <div class="media-body">
                 <h3 class="heading">Free Shipping</h3>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
+              </div> 
             </div>      
           </div>
           <div class="col-lg-4 text-center d-flex align-self-stretch ftco-animate">

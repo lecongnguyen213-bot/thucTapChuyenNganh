@@ -4,7 +4,7 @@
     <div class="card-footer small text-muted">
 
     <table class="table">
-        <h3>Category </h3>
+        <h3>Author Management Page </h3>
         <a href="{{route('admin.category.create')}}" class="btn btn-primary">Add</a>  
   <thead>
     <tr>

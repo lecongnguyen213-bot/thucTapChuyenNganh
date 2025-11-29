@@ -116,11 +116,11 @@
                     </li>
                     <li>
                       <a href="{{route('admin.category.index')}}">
-                        <span class="sub-item">Category</span>
+                        <span class="sub-item">Author</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{route('admin.shop')}}">
+                      <a href="{{route('admin.shop.index')}}">
                         <span class="sub-item">Shop</span>
                       </a>
                     </li>

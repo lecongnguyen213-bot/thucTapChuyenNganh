@@ -5,8 +5,8 @@
       <form action="{{ route('admin.category.store') }}" method="POST">
           @csrf
           <div class="mb-3">
-              <label class="form-label">Category name</label>
-              <input type="text" name="name" class="form-control" placeholder="category name">
+              <label class="form-label">category name</label>
+              <input type="text" name="name" class="form-control" placeholder="author name">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
       </form>

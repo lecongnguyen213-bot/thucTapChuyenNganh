@@ -23,23 +23,15 @@ Route::middleware('auth')->group(function () {
     ], function () {
 
          Route::resource('product', ProductController::class);
-        Route::get('/shop', [ShopController::class, 'index'])->name('shop');
+        Route::resource('shop', ShopController::class);
         // Route category trong group admin
         Route::resource('category', CategoryController::class);
         // Route trang admin chính
         Route::get('/', [AdminController::class, 'index'])->name('index');
     });
-    // Route::get('/admin/product', [ProductController::class, 'index'])
-    //     ->name('product');
-
-    // Route::get('/admin/shop', [ShopController::class, 'index'])
-    //     ->name('shop');
-    // Route::get('/admin', [AdminController::class, 'index'])
-    //     ->name('admin');
-    //  Route::resource('category', CategoryController::class);
 });
 
-// Các trang home
+// Homepages
 Route::get('/cart', fn() => view('cart'))->name('cart');
 Route::get('/about', fn() => view('about'))->name('about');
 Route::get('/blog', fn() => view('blog'))->name('blog');

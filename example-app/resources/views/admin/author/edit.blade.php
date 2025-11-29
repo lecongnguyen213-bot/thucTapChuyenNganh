@@ -1,7 +1,7 @@
 
 @extends('layout/admin')
 @section('body')
-<h3>Edit Category</h3>
+<h3>Author - Rename</h3>
 <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
     @csrf
     @method('PUT')

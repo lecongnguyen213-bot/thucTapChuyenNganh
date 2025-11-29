@@ -34,7 +34,7 @@
 						<div class="social-links">
 							<ul>
 								<li>
-									<a href="#"><i class="icon icon-facebook"></i></a>
+									<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-facebook"></i></a>
 								</li>
 								<li>
 									<a href="#"><i class="icon icon-twitter"></i></a>
@@ -248,7 +248,7 @@
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="#"><i class="icon icon-facebook"></i></a>
+											<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-facebook"></i></a>
 										</li>
 										<li>
 											<a href="#"><i class="icon icon-twitter"></i></a>

@@ -33,6 +33,7 @@ Route::middleware('auth')->group(function () {
 
 // Homepages
 Route::get('/cart', fn() => view('cart'))->name('cart');
+Route::get('/checkout', fn() => view('checkout'))->name('checkout');
 Route::get('/about', fn() => view('about'))->name('about');
 Route::get('/blog', fn() => view('blog'))->name('blog');
 Route::get('/single-blog', fn() => view('single-blog'))->name('single-blog');

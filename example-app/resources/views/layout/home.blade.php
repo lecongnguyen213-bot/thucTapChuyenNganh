@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>BookSaw - Free Book Store HTML CSS Template</title>
+	<title>BookSaw</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +13,7 @@
 	<meta name="description" content="">
 
     <base href="{{ asset('') }}">
+	
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -21,6 +22,7 @@
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
+	@stack('cart')
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
@@ -270,14 +272,66 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
 		crossorigin="anonymous"></script>
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
+	@if (Request::is('cart'))
+  <script src="minishop/js/jquery.min.js"></script>
+  <script src="minishop/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="minishop/js/popper.min.js"></script>
+  <script src="minishop/js/bootstrap.min.js"></script>
+  <script src="minishop/js/jquery.easing.1.3.js"></script>
+  <script src="minishop/js/jquery.waypoints.min.js"></script>
+  <script src="minishop/js/jquery.stellar.min.js"></script>
+  <script src="minishop/js/owl.carousel.min.js"></script>
+  <script src="minishop/js/jquery.magnific-popup.min.js"></script>
+  <script src="minishop/js/aos.js"></script>
+  <script src="minishop/js/jquery.animateNumber.min.js"></script>
+  <script src="minishop/js/bootstrap-datepicker.js"></script>
+  <script src="minishop/js/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="minishop/js/google-map.js"></script>
+  <script src="minishop/js/main.js"></script>
+  <script>
+		$(document).ready(function(){
 
+		var quantitiy=0;
+		   $('.quantity-right-plus').click(function(e){
+		        
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		            
+		            $('#quantity').val(quantity + 1);
+
+		          
+		            // Increment
+		        
+		    });
+
+		     $('.quantity-left-minus').click(function(e){
+		        // Stop acting like a button
+		        e.preventDefault();
+		        // Get the field name
+		        var quantity = parseInt($('#quantity').val());
+		        
+		        // If is not undefined
+		      
+		            // Increment
+		            if(quantity>0){
+		            $('#quantity').val(quantity - 1);
+		            }
+		    });
+		    
+		});
+	</script>
+@endif
 </body>
 
 </html>

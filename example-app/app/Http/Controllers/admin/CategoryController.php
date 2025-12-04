@@ -13,10 +13,6 @@ class CategoryController extends Controller
     {
         // Chỉ truy cập khi đã đăng nhập
         $this->middleware('auth');   
-
-        // Share biến cho tất cả view
-        $categories = Category::all();
-        view()->share('categories', $categories);
     }
     
     public function index()
@@ -33,6 +29,8 @@ class CategoryController extends Controller
         $categories =Category::create(
             [
                 'name'=>$request->name, //ten database
+                'image'=>$request->image,
+                'status'=>$request->status?? 0,
             ]
         );
         if ($categories) {
@@ -45,6 +43,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = Category::findOrFail($id);
+
         return view('admin.author.edit', compact('category'));
     }
     public function update(Request $request, $id)
@@ -54,7 +53,9 @@ class CategoryController extends Controller
     ]);
         $category = Category::findOrFail($id);
         $category->update([
-        'name' => $request->name
+        'name' => $request->name,
+        'image' => $request->image?? $category->image,
+        'status' => $request->status??0
     ]);
 
     return redirect()->route('admin.category.index')

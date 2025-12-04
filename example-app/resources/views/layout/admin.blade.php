@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <title>Admin Page</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
@@ -111,12 +112,12 @@
                     
                     <li>
                       <a href="{{route('admin.product.index')}}">
-                        <span class="sub-item">Product</span>
+                        <span class="sub-item">Books Management</span>
                       </a>
                     </li>
                     <li>
                       <a href="{{route('admin.category.index')}}">
-                        <span class="sub-item">Author</span>
+                        <span class="sub-item">Author Management</span>
                       </a>
                     </li>
                     <li>

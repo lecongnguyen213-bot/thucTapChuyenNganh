@@ -17,12 +17,12 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // admin — phải đăng nhập mới vào được
 Route::middleware('auth')->group(function () {
     // Nhóm route admin
-     Route::group([
+    Route::group([
         'prefix' => 'admin',
         'as' => 'admin.'
     ], function () {
 
-         Route::resource('product', ProductController::class);
+        Route::resource('product', ProductController::class);
         Route::resource('shop', ShopController::class);
         // Route category trong group admin
         Route::resource('category', CategoryController::class);

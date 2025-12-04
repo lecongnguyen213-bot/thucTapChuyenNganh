@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Category;
 class ProductController extends Controller
 {
     public function __construct()
@@ -26,13 +26,21 @@ class ProductController extends Controller
 
     public function create()
     {
-        return view('admin.prod.add');
+        $categories = Category::all();
+        return view('admin.prod.add', compact('categories'));
     }
 
     public function store(Request $request)
     {
         Product::create([
-            'name' => $request->name,
+            'name' => $request->name?? '',
+            'title' => $request->title?? '',
+            'image' => $request->image?? '',
+            'price' => $request->price??0,
+            'description' => $request->description?? '',
+            'status' => $request->status??0,
+            'category_id' => $request->category_id?? null,
+            'content' => $request->input('content', ''),
         ]);
 
         return redirect()->route('admin.product.index')
@@ -42,7 +50,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('admin.prod.edit', compact('product')); // ✔ đúng view
+        $categories = Category::all();
+        return view('admin.prod.edit', compact('product','categories')); // ✔ đúng view
     }
 
     public function update(Request $request, $id)
@@ -54,7 +63,14 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
 
         $product->update([
-            'name' => $request->name
+            'name' => $request->name,
+            'title' => $request->title,
+            'image' => $request->image ?? $product->image,
+            'price' => $request->price ?? 0,    
+            'description' => $request->description,
+            'status' => $request->status,
+            'category_id' => $request->category_id,
+            'content' => $request->input('content', ''),
         ]);
 
         return redirect()->route('admin.product.index')

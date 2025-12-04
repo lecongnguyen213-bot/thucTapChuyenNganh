@@ -12,8 +12,8 @@
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 
-    <base href="{{ asset('') }}">
-	
+	<base href="{{ asset('') }}">
+
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -36,7 +36,8 @@
 						<div class="social-links">
 							<ul>
 								<li>
-									<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-facebook"></i></a>
+									<a href="https://www.facebook.com/tuongvy.pham21"><i
+											class="icon icon-facebook"></i></a>
 								</li>
 								<li>
 									<a href="#"><i class="icon icon-twitter"></i></a>
@@ -50,7 +51,7 @@
 							</ul>
 						</div><!--social-links-->
 					</div>
-					<div class="col-md-6">	
+					<div class="col-md-6">
 						<div class="right-element">
 							<a href="{{asset('login')}}" class="user-account for-buy"><i
 									class="icon icon-user"></i><span>Login</span></a>
@@ -93,7 +94,20 @@
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
-									<li><a href="{{ route('home') }}">Home</a></li>
+									<li><a href="{{ route('home') }}">Home</a>
+										<ul>
+											@if(isset($categories) && $categories->isNotEmpty())
+												@foreach($categories as $category)
+													<li><a
+															href="{{ route('admin.category.index', ['id' => $category->id]) }}">{{ $category->name }}</a>
+													</li>
+												@endforeach
+											@else
+												<li>Authors Data is empty</li>
+											@endif
+										</ul>
+
+									</li>
 									<li><a href="{{ route('about') }}" class="nav-link">About</a></li>
 									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
 									<li><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
@@ -118,7 +132,7 @@
 
 	</div><!--header-wrap-->
 
-    @yield('body')
+	@yield('body')
 	<footer id="footer">
 		<div class="container">
 			<div class="row">
@@ -250,7 +264,8 @@
 								<div class="social-links align-right">
 									<ul>
 										<li>
-											<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-facebook"></i></a>
+											<a href="https://www.facebook.com/tuongvy.pham21"><i
+													class="icon icon-facebook"></i></a>
 										</li>
 										<li>
 											<a href="#"><i class="icon icon-twitter"></i></a>
@@ -279,59 +294,60 @@
 	<script src="js/plugins.js"></script>
 	<script src="js/script.js"></script>
 	@if (Request::is('cart'))
-  <script src="minishop/js/jquery.min.js"></script>
-  <script src="minishop/js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="minishop/js/popper.min.js"></script>
-  <script src="minishop/js/bootstrap.min.js"></script>
-  <script src="minishop/js/jquery.easing.1.3.js"></script>
-  <script src="minishop/js/jquery.waypoints.min.js"></script>
-  <script src="minishop/js/jquery.stellar.min.js"></script>
-  <script src="minishop/js/owl.carousel.min.js"></script>
-  <script src="minishop/js/jquery.magnific-popup.min.js"></script>
-  <script src="minishop/js/aos.js"></script>
-  <script src="minishop/js/jquery.animateNumber.min.js"></script>
-  <script src="minishop/js/bootstrap-datepicker.js"></script>
-  <script src="minishop/js/scrollax.min.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="minishop/js/google-map.js"></script>
-  <script src="minishop/js/main.js"></script>
-  <script>
-		$(document).ready(function(){
+		<script src="minishop/js/jquery.min.js"></script>
+		<script src="minishop/js/jquery-migrate-3.0.1.min.js"></script>
+		<script src="minishop/js/popper.min.js"></script>
+		<script src="minishop/js/bootstrap.min.js"></script>
+		<script src="minishop/js/jquery.easing.1.3.js"></script>
+		<script src="minishop/js/jquery.waypoints.min.js"></script>
+		<script src="minishop/js/jquery.stellar.min.js"></script>
+		<script src="minishop/js/owl.carousel.min.js"></script>
+		<script src="minishop/js/jquery.magnific-popup.min.js"></script>
+		<script src="minishop/js/aos.js"></script>
+		<script src="minishop/js/jquery.animateNumber.min.js"></script>
+		<script src="minishop/js/bootstrap-datepicker.js"></script>
+		<script src="minishop/js/scrollax.min.js"></script>
+		<script
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+		<script src="minishop/js/google-map.js"></script>
+		<script src="minishop/js/main.js"></script>
+		<script>
+			$(document).ready(function () {
 
-		var quantitiy=0;
-		   $('.quantity-right-plus').click(function(e){
-		        
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		            
-		            $('#quantity').val(quantity + 1);
+				var quantitiy = 0;
+				$('.quantity-right-plus').click(function (e) {
 
-		          
-		            // Increment
-		        
-		    });
+					// Stop acting like a button
+					e.preventDefault();
+					// Get the field name
+					var quantity = parseInt($('#quantity').val());
 
-		     $('.quantity-left-minus').click(function(e){
-		        // Stop acting like a button
-		        e.preventDefault();
-		        // Get the field name
-		        var quantity = parseInt($('#quantity').val());
-		        
-		        // If is not undefined
-		      
-		            // Increment
-		            if(quantity>0){
-		            $('#quantity').val(quantity - 1);
-		            }
-		    });
-		    
-		});
-	</script>
-@endif
+					// If is not undefined
+
+					$('#quantity').val(quantity + 1);
+
+
+					// Increment
+
+				});
+
+				$('.quantity-left-minus').click(function (e) {
+					// Stop acting like a button
+					e.preventDefault();
+					// Get the field name
+					var quantity = parseInt($('#quantity').val());
+
+					// If is not undefined
+
+					// Increment
+					if (quantity > 0) {
+						$('#quantity').val(quantity - 1);
+					}
+				});
+
+			});
+		</script>
+	@endif
 </body>
 
 </html>

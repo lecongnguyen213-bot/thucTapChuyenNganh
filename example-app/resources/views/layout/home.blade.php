@@ -90,16 +90,16 @@
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
-									<li><a href="{{ route('home') }}">Home</a>
+									<li>
+										<a href="{{ route('home') }}">Home</a>
 										<ul>
-											@if(isset($categories) && $categories->isNotEmpty())
-												@foreach($categories as $category)
-													<li><a href="category">{{ $category->name }}</a>
-													</li>
-												@endforeach
-											@else
-												<li>Authors Data is empty</li>
-											@endif
+											@foreach($categories as $category)
+												<li>
+													<a href="{{ route('category.show', $category->id) }}">
+														{{ $category->name }}
+													</a>
+												</li>
+											@endforeach
 										</ul>
 									</li>
 									<li><a href="{{ route('about') }}" class="nav-link">About</a></li>

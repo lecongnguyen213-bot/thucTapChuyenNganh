@@ -33,13 +33,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create([
-            'name' => $request->name?? '',
-            'title' => $request->title?? '',
-            'image' => $request->image?? '',
-            'price' => $request->price??0,
-            'description' => $request->description?? '',
-            'status' => $request->status??0,
-            'category_id' => $request->category_id?? null,
+            'name' => $request->name ?? '',
+            'title' => $request->title ?? '',
+            'image' => $request->image ?? '',
+            'price' => $request->price ?? 0,
+            'description' => $request->description ?? '',
+            'status' => $request->status ?? 0,
+            'category_id' => $request->category_id ?? null,
             'content' => $request->input('content', ''),
         ]);
 
@@ -51,7 +51,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        return view('admin.prod.edit', compact('product','categories')); // ✔ đúng view
+        return view('admin.prod.edit', compact('product', 'categories')); // ✔ đúng view
     }
 
     public function update(Request $request, $id)
@@ -66,7 +66,7 @@ class ProductController extends Controller
             'name' => $request->name,
             'title' => $request->title,
             'image' => $request->image ?? $product->image,
-            'price' => $request->price ?? 0,    
+            'price' => $request->price ?? 0,
             'description' => $request->description,
             'status' => $request->status,
             'category_id' => $request->category_id,

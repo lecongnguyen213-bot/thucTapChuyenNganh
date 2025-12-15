@@ -14,8 +14,8 @@ Route::get('/', function () {
 Auth::routes();
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-// admin — phải đăng nhập mới vào được
-Route::middleware('auth')->group(function () {
+// // admin — phải đăng nhập mới vào được
+// Route::middleware('auth')->group(function () {
     // Nhóm route admin
     Route::group([
         'prefix' => 'admin',
@@ -29,7 +29,6 @@ Route::middleware('auth')->group(function () {
         // Route trang admin chính
         Route::get('/', [AdminController::class, 'index'])->name('index');
     });
-});
 
 // Homepages
 Route::get('/cart', fn() => view('cart'))->name('cart');
@@ -40,3 +39,5 @@ Route::get('/single-blog', fn() => view('single-blog'))->name('single-blog');
 Route::get('/contact', fn() => view('contact'))->name('contact');
 //-----------------------------------------------------------//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+//category-list
+Route::get('/category/{id}', [CategoryController::class, 'show'])->name('category.show');

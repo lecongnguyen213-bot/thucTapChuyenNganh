@@ -12,9 +12,9 @@ class CategoryController extends Controller
     public function __construct()
     {
         // Chỉ truy cập khi đã đăng nhập
-        $this->middleware('auth');   
+        $this->middleware('auth')->except('show');
     }
-    
+
     public function index()
     {
         $categories = Category::all();
@@ -26,20 +26,19 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
-        $categories =Category::create(
+        $categories = Category::create(
             [
-                'name'=>$request->name, //ten database
-                'image'=>$request->image,
-                'status'=>$request->status?? 0,
+                'name' => $request->name, //ten database
+                'image' => $request->image,
+                'status' => $request->status ?? 0,
             ]
         );
         if ($categories) {
-             return redirect()->route('admin.category.index');
-            }
-        else {
-            return back();  
+            return redirect()->route('admin.category.index');
+        } else {
+            return back();
         }
-    }  
+    }
     public function edit($id)
     {
         $category = Category::findOrFail($id);
@@ -49,17 +48,17 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-        'name' => 'required|min:3'
-    ]);
+            'name' => 'required|min:3'
+        ]);
         $category = Category::findOrFail($id);
         $category->update([
-        'name' => $request->name,
-        'image' => $request->image?? $category->image,
-        'status' => $request->status??0
-    ]);
+            'name' => $request->name,
+            'image' => $request->image ?? $category->image,
+            'status' => $request->status ?? 0
+        ]);
 
-    return redirect()->route('admin.category.index')
-    ->with('success', 'Category updated successfully!');
+        return redirect()->route('admin.category.index')
+            ->with('success', 'Category updated successfully!');
     }
     public function destroy($id)
     {
@@ -68,5 +67,12 @@ class CategoryController extends Controller
         return redirect()->route('admin.category.index')
             ->with('success', 'Category deleted successfully!');
     }
+    public function show($id)
+    {
+        $category = Category::findOrFail($id);
+
+        return view('category', compact('category'));
+    }
+
 }
-    
+

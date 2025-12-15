@@ -53,8 +53,8 @@
 					</div>
 					<div class="col-md-6">
 						<div class="right-element">
-							<a href="{{asset('login')}}" class="user-account for-buy"><i
-									class="icon icon-user"></i><span>Login</span></a>
+							<!-- <a href="{{asset('login')}}" class="user-account for-buy"><i
+									class="icon icon-user"></i><span>Login</span></a> -->
 							<a href="{{ route('cart') }}"><i class="icon icon-clipboard"></i><span>Cart:(0
 									$)</span></a>
 
@@ -77,7 +77,6 @@
 				</div>
 			</div>
 		</div><!--top-content-->
-
 		<header id="header">
 			<div class="container-fluid">
 				<div class="row">
@@ -86,11 +85,8 @@
 						<div class="main-logo">
 							<a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
 						</div>
-
 					</div>
-
 					<div class="col-md-10">
-
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
 								<ul class="menu-list">
@@ -98,15 +94,13 @@
 										<ul>
 											@if(isset($categories) && $categories->isNotEmpty())
 												@foreach($categories as $category)
-													<li><a
-															href="{{ route('admin.category.index', ['id' => $category->id]) }}">{{ $category->name }}</a>
+													<li><a href="category">{{ $category->name }}</a>
 													</li>
 												@endforeach
 											@else
 												<li>Authors Data is empty</li>
 											@endif
 										</ul>
-
 									</li>
 									<li><a href="{{ route('about') }}" class="nav-link">About</a></li>
 									<li><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
@@ -114,7 +108,6 @@
 									<!-- <li class="menu-item"><a href="#latest-blog" class="nav-link">Articles</a></li> -->
 									<li><a href="{{ route('admin.index') }}" class="nav-link">AdminPage</a></li>
 								</ul>
-
 								<div class="hamburger">
 									<span class="bar"></span>
 									<span class="bar"></span>
@@ -149,7 +142,6 @@
 					</div>
 
 				</div>
-
 				<div class="col-md-2">
 
 					<div class="footer-menu">

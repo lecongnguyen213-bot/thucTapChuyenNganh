@@ -11,7 +11,7 @@ class AdminController extends Controller
     public function __construct()
     {
         // Bắt buộc đăng nhập mới vào admin được
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
     public function index()
     {

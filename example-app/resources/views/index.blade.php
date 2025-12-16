@@ -1,4 +1,4 @@
-@extends('layout/home')
+@extends('layout.home')
 @section('body')
 	<section id="best-selling" class="leaf-pattern-overlay">
 		<div class="corner-pattern-overlay"></div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Page;
 class HomeController extends Controller
 {
     /**
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        
+
 
     }
 
@@ -25,8 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('status', 1)->get(); // chỉ lấy active
-        return view('home', compact('categories'));
+        return view('index');
     }
     public function category_product($id)
     {
@@ -40,7 +40,7 @@ class HomeController extends Controller
             compact('category', 'products')
         );
     }
-        public function detail($id)
+    public function detail($id)
     {
         $product = Product::find($id);
         return view('layout.single_product', compact('product'));

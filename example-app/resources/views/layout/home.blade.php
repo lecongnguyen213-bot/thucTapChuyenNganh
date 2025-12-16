@@ -21,8 +21,8 @@
 	<link rel="stylesheet" type="text/css" href="icomoon/icomoon.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-
 	@stack('cart')
+
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
@@ -92,7 +92,7 @@
 								<ul class="menu-list">
 									<li>
 										<a href="{{ route('home') }}">Home</a>
-										</li>
+									</li>
 									<li>
 										<a href="#">Danh mục</a>
 										<ul>

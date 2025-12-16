@@ -120,11 +120,7 @@
                         <span class="sub-item">Author Management</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="{{route('admin.shop.index')}}">
-                        <span class="sub-item">Shop</span>
-                      </a>
-                    </li>
+                  
                     <!-- <li>
                       <a href="components/panels.html">
                         <span class="sub-item">Panels</span>

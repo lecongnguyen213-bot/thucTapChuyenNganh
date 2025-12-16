@@ -92,6 +92,9 @@
 								<ul class="menu-list">
 									<li>
 										<a href="{{ route('home') }}">Home</a>
+										</li>
+									<li>
+										<a href="#">Danh mục</a>
 										<ul>
 											@foreach($categories as $category)
 												<li>

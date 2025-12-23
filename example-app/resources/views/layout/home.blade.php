@@ -11,6 +11,7 @@
 	<meta name="author" content="">
 	<meta name="keywords" content="">
 	<meta name="description" content="">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<base href="{{ asset('') }}">
 
@@ -53,11 +54,12 @@
 					</div>
 					<div class="col-md-6">
 						<div class="right-element">
-							<!-- <a href="{{asset('login')}}" class="user-account for-buy"><i
-									class="icon icon-user"></i><span>Login</span></a> -->
-							<a href="{{ route('cart') }}"><i class="icon icon-clipboard"></i><span>Cart:(0
-									$)</span></a>
-
+							<a href="{{ route('cart') }}">
+								<i class="icon icon-clipboard"></i>
+								<span>
+									Cart: ({{ number_format($cartTotal ?? 0) }} $)
+								</span>
+							</a>
 							<div class="action-menu">
 
 								<div class="search-bar">
@@ -83,7 +85,7 @@
 
 					<div class="col-md-2">
 						<div class="main-logo">
-							<a href="index.html"><img src="images/main-logo.png" alt="logo"></a>
+							<a href="{{ route('home') }}"><img src="images/main-logo.png" alt="logo"></a>
 						</div>
 					</div>
 					<div class="col-md-10">

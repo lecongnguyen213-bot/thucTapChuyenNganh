@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\DashboardController;
 // Trang chủ
 // Route::get('/', function () {
 //     return view('index');
@@ -24,9 +25,15 @@ Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/blog/{post:slug}', [PageController::class, 'blogDetail'])->name('blog.detail');
 
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.send');
-
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
-
+Route::resource('cart', HomeController::class)
+    ->only(['store', 'update', 'destroy'])
+    ->names([
+        'store'   => 'cart.store',
+        'update'  => 'cart.update',
+        'destroy' => 'cart.destroy'
+    ]);
+Route::get('/cart', [HomeController::class, 'indexCart'])->name('cart');
+Route::post('/checkout', [HomeController::class, 'checkout'])->name('cart.checkout');
 Auth::routes();
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 // // admin — phải đăng nhập mới vào được
@@ -39,11 +46,6 @@ Route::group([
     Route::resource('product', ProductController::class);
     Route::resource('category', CategoryController::class);
     Route::get('/', [AdminController::class, 'index'])->name('index');
+   Route::get('/dashboard1', [DashboardController::class, 'index'])
+    ->name('dashboard1');
 });
-// Homepages
-// Route::get('/cart', fn() => view('cart'))->name('cart');
-// Route::get('/checkout', fn() => view('checkout'))->name('checkout');
-// Route::get('/about', fn() => view('about'))->name('about');
-// Route::get('/blog', fn() => view('blog'))->name('blog');
-// Route::get('/single-blog', fn() => view('single-blog'))->name('single-blog');
-// Route::get('/contact', fn() => view('contact'))->name('contact');

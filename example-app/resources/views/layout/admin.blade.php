@@ -1,162 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Admin Page</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-      name="viewport"
-    />
-    <base href="{{asset('public/')}}">
-    <link
-      rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
-      type="image/x-icon"
-    />
 
-    <!-- Fonts and icons -->
-    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
-    <script>
-      WebFont.load({
-        google: { families: ["Public Sans:300,400,500,600,700"] },
-        custom: {
-          families: [
-            "Font Awesome 5 Solid",
-            "Font Awesome 5 Regular",
-            "Font Awesome 5 Brands",
-            "simple-line-icons",
-          ],
-          urls: ["assets/css/fonts.min.css"],
-        },
-        active: function () {
-          sessionStorage.fonts = true;
-        },
-      });
-    </script>
+<head>
+  <title>Admin Page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
+  <base href="{{asset('public/')}}">
+  <link rel="icon" href="assets/img/kaiadmin/favicon.ico" type="image/x-icon" />
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="assets/css/plugins.min.css" />
-    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+  <!-- Fonts and icons -->
+  <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+  <script>
+    WebFont.load({
+      google: { families: ["Public Sans:300,400,500,600,700"] },
+      custom: {
+        families: [
+          "Font Awesome 5 Solid",
+          "Font Awesome 5 Regular",
+          "Font Awesome 5 Brands",
+          "simple-line-icons",
+        ],
+        urls: ["assets/css/fonts.min.css"],
+      },
+      active: function () {
+        sessionStorage.fonts = true;
+      },
+    });
+  </script>
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link rel="stylesheet" href="assets/css/demo.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <!-- Sidebar -->
-      <div class="sidebar" data-background-color="dark">
-        <div class="sidebar-logo">
-          <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
-              <img
-                src="assets/img/kaiadmin/logo_light.svg"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-            <button class="topbar-toggler more">
-              <i class="gg-more-vertical-alt"></i>
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/plugins.min.css" />
+  <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
+
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link rel="stylesheet" href="assets/css/demo.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" data-background-color="dark">
+      <div class="sidebar-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+          <a href="index.html" class="logo">
+            <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
+          </a>
+          <div class="nav-toggle">
+            <button class="btn btn-toggle toggle-sidebar">
+              <i class="gg-menu-right"></i>
+            </button>
+            <button class="btn btn-toggle sidenav-toggler">
+              <i class="gg-menu-left"></i>
             </button>
           </div>
-          <!-- End Logo Header -->
+          <button class="topbar-toggler more">
+            <i class="gg-more-vertical-alt"></i>
+          </button>
         </div>
-        <div class="sidebar-wrapper scrollbar scrollbar-inner">
-          <div class="sidebar-content">
-            <ul class="nav nav-secondary">
-              <li class="nav-item active">
-                <a
-                  data-bs-toggle="collapse"
-                  href="#dashboard"
-                  class="collapsed"
-                  aria-expanded="false"
-                >
-                  <i class="fas fa-home"></i>
-                  <p>Dashboard</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="dashboard">
-                  <ul class="nav nav-collapse">
-                    <li>
-                      <a href="../demo1/index.html">
-                        <span class="sub-item">Dashboard 1</span>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
-              </li>
-              <li class="nav-item">
-                <a data-bs-toggle="collapse" href="#base">
-                  <i class="fas fa-layer-group"></i>
-                  <p>Base</p>
-                  <span class="caret"></span>
-                </a>
-                <div class="collapse" id="base">
-                  <ul class="nav nav-collapse">
-                    
-                    <li>
-                      <a href="{{route('admin.product.index')}}">
-                        <span class="sub-item">Books Management</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="{{route('admin.category.index')}}">
-                        <span class="sub-item">Author Management</span>
-                      </a>
-                    </li>
-                  
-                    <!-- <li>
+        <!-- End Logo Header -->
+      </div>
+      <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+          <ul class="nav nav-secondary">
+            <li class="nav-item active">
+              <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                <i class="fas fa-home"></i>
+                <p>Dashboard</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="dashboard">
+                <ul class="nav nav-collapse">
+                  <li class="nav-item">
+                    <a href="{{ route('admin.dashboard1') }}" class="nav-link">
+                      <i class="bi bi-speedometer2"></i> Dashboard
+                    </a>
+                  </li>
+
+                </ul>
+              </div>
+            </li>
+            <li class="nav-section">
+              <span class="sidebar-mini-icon">
+                <i class="fa fa-ellipsis-h"></i>
+              </span>
+              <h4 class="text-section">Components</h4>
+            </li>
+            <li class="nav-item">
+              <a data-bs-toggle="collapse" href="#base">
+                <i class="fas fa-layer-group"></i>
+                <p>Base</p>
+                <span class="caret"></span>
+              </a>
+              <div class="collapse" id="base">
+                <ul class="nav nav-collapse">
+
+                  <li>
+                    <a href="{{route('admin.product.index')}}">
+                      <span class="sub-item">Books Management</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{route('admin.category.index')}}">
+                      <span class="sub-item">Author Management</span>
+                    </a>
+                  </li>
+
+                  <!-- <li>
                       <a href="components/panels.html">
                         <span class="sub-item">Panels</span>
                       </a>
                     </li> -->
-                    <!-- <li>
+                  <!-- <li>
                       <a href="components/notifications.html">
                         <span class="sub-item">Notifications</span>
                       </a>
                     </li> -->
-                    <!-- <li>
+                  <!-- <li>
                       <a href="components/sweetalert.html">
                         <span class="sub-item">Sweet Alert</span>
                       </a>
                     </li> -->
-                    <!-- <li>
+                  <!-- <li>
                       <a href="components/font-awesome-icons.html">
                         <span class="sub-item">Font Awesome Icons</span>
                       </a>
                     </li> -->
-                    <!-- <li>
+                  <!-- <li>
                       <a href="components/simple-line-icons.html">
                         <span class="sub-item">Simple Line Icons</span>
                       </a>
                     </li> -->
-                    <!-- <li>
+                  <!-- <li>
                       <a href="components/typography.html">
                         <span class="sub-item">Typography</span>
                       </a>
                     </li> -->
-                  </ul>
-                </div>
-              </li>
-              <li class="nav-item"><h8>Comment list item (dong 155)</h8></li>
-    <!--List item menu admin page (the li/item)-->
-              <!-- <li class="nav-item">
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <h8>Comment list item (dong 155)</h8>
+            </li>
+            <!--List item menu admin page (the li/item)-->
+            <!-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
                   <p>Sidebar Layouts</p>
@@ -321,104 +309,79 @@
                   </ul>
                 </div>
               </li> -->
-            </ul>
-          </div>
+          </ul>
         </div>
       </div>
-      <!-- End Sidebar -->
+    </div>
+    <!-- End Sidebar -->
 
-      <div class="main-panel">
-        <div class="main-header">
-          <div class="main-header-logo">
-            <!-- Logo Header -->
-            <div class="logo-header" data-background-color="dark">
-              <a href="index.html" class="logo">
-                <img
-                  src="assets/img/kaiadmin/logo_light.svg"
-                  alt="navbar brand"
-                  class="navbar-brand"
-                  height="20"
-                />
+    <div class="main-panel">
+      <div class="main-header">
+        <div class="main-header-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="dark">
+            <a href="index.html" class="logo">
+              <img src="assets/img/kaiadmin/logo_light.svg" alt="navbar brand" class="navbar-brand" height="20" />
               123</a>
-              <div class="nav-toggle">
-                <button class="btn btn-toggle toggle-sidebar">
-                  <i class="gg-menu-right"></i>
-                </button>
-                <button class="btn btn-toggle sidenav-toggler">
-                  <i class="gg-menu-left"></i>
-                </button>
-              </div>
-              <button class="topbar-toggler more">
-                <i class="gg-more-vertical-alt"></i>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
               </button>
             </div>
-            <!-- End Logo Header -->
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
           </div>
-          <!-- Navbar Header -->
-          <nav
-            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
-          >
-            <div class="container-fluid">
-              <nav
-                class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex"
-              >
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <button type="submit" class="btn btn-search pe-1">
-                      <i class="fa fa-search search-icon"></i>
-                    </button>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="Search ..."
-                    class="form-control"
-                  />
+          <!-- End Logo Header -->
+        </div>
+        <!-- Navbar Header -->
+        <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+          <div class="container-fluid">
+            <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <button type="submit" class="btn btn-search pe-1">
+                    <i class="fa fa-search search-icon"></i>
+                  </button>
                 </div>
-              </nav>
+                <input type="text" placeholder="Search ..." class="form-control" />
+              </div>
+            </nav>
 
-              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
-                <li
-                  class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none"
-                >
-                  <a
-                    class="nav-link dropdown-toggle"
-                    data-bs-toggle="dropdown"
-                    href="#"
-                    role="button"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                  >
-                    <i class="fa fa-search"></i>
-                  </a>
-                  <ul class="dropdown-menu dropdown-search animated fadeIn">
-                    <form class="navbar-left navbar-form nav-search">
-                      <div class="input-group">
-                        <input
-                          type="text"
-                          placeholder="Search ..."
-                          class="form-control"
-                        />
-                      </div>
-                    </form>
-                  </ul>
-                </li>
-                <li class="nav-item topbar-icon dropdown hidden-caret">
-               <li class="nav-item topbar-icon dropdown hidden-caret">
-                  <a href="#" onclick="event.preventDefault(); 
+            <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+              <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                  aria-expanded="false" aria-haspopup="true">
+                  <i class="fa fa-search"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-search animated fadeIn">
+                  <form class="navbar-left navbar-form nav-search">
+                    <div class="input-group">
+                      <input type="text" placeholder="Search ..." class="form-control" />
+                    </div>
+                  </form>
+                </ul>
+              </li>
+              <li class="nav-item topbar-icon dropdown hidden-caret">
+              <li class="nav-item topbar-icon dropdown hidden-caret">
+                <a href="#" onclick="event.preventDefault(); 
                   document.getElementById('logout-form').submit();">Logout
-                  </a>
-                </li>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            </div>
-          </nav>
-          <!-- End Navbar -->
-        </div>
+                </a>
+              </li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+              </form>
+          </div>
+        </nav>
+        <!-- End Navbar -->
+      </div>
 
-        <div class="container">
-            @yield('body')
-        </div>
+      <div class="container">
+        @yield('body')
+      </div>
       <!-- Custom template | don't include it in your project! -->
       <div class="custom-template">
         <div class="title">Settings</div>
@@ -427,183 +390,51 @@
             <div class="switch-block">
               <h4>Logo Header</h4>
               <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="selected changeLogoHeaderColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="purple"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="light-blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="green"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="orange"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="red"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="white"
-                ></button>
+                <button type="button" class="selected changeLogoHeaderColor" data-color="dark"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="blue"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="green"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="red"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="white"></button>
                 <br />
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="dark2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="purple2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="light-blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="green2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="orange2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeLogoHeaderColor"
-                  data-color="red2"
-                ></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
+                <button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
               </div>
             </div>
             <div class="switch-block">
               <h4>Navbar Header</h4>
               <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="purple"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="light-blue"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="green"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="orange"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="red"
-                ></button>
-                <button
-                  type="button"
-                  class="selected changeTopBarColor"
-                  data-color="white"
-                ></button>
+                <button type="button" class="changeTopBarColor" data-color="dark"></button>
+                <button type="button" class="changeTopBarColor" data-color="blue"></button>
+                <button type="button" class="changeTopBarColor" data-color="purple"></button>
+                <button type="button" class="changeTopBarColor" data-color="light-blue"></button>
+                <button type="button" class="changeTopBarColor" data-color="green"></button>
+                <button type="button" class="changeTopBarColor" data-color="orange"></button>
+                <button type="button" class="changeTopBarColor" data-color="red"></button>
+                <button type="button" class="selected changeTopBarColor" data-color="white"></button>
                 <br />
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="dark2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="purple2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="light-blue2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="green2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="orange2"
-                ></button>
-                <button
-                  type="button"
-                  class="changeTopBarColor"
-                  data-color="red2"
-                ></button>
+                <button type="button" class="changeTopBarColor" data-color="dark2"></button>
+                <button type="button" class="changeTopBarColor" data-color="blue2"></button>
+                <button type="button" class="changeTopBarColor" data-color="purple2"></button>
+                <button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
+                <button type="button" class="changeTopBarColor" data-color="green2"></button>
+                <button type="button" class="changeTopBarColor" data-color="orange2"></button>
+                <button type="button" class="changeTopBarColor" data-color="red2"></button>
               </div>
             </div>
             <div class="switch-block">
               <h4>Sidebar</h4>
               <div class="btnSwitch">
-                <button
-                  type="button"
-                  class="changeSideBarColor"
-                  data-color="white"
-                ></button>
-                <button
-                  type="button"
-                  class="selected changeSideBarColor"
-                  data-color="dark"
-                ></button>
-                <button
-                  type="button"
-                  class="changeSideBarColor"
-                  data-color="dark2"
-                ></button>
+                <button type="button" class="changeSideBarColor" data-color="white"></button>
+                <button type="button" class="selected changeSideBarColor" data-color="dark"></button>
+                <button type="button" class="changeSideBarColor" data-color="dark2"></button>
               </div>
             </div>
           </div>
@@ -677,5 +508,6 @@
         fillColor: "rgba(255, 165, 52, .14)",
       });
     </script>
-  </body>
+</body>
+
 </html>

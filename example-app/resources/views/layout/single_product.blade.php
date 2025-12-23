@@ -10,7 +10,7 @@
                 <a href="{{ url('/') }}">Home</a>
             </li>
             <li class="breadcrumb-item">
-                <a href="{{ route('category.show', $product->category_id ?? '#') }}">
+                <a href="{{ route('category.show', $product->category_id) }}">
                     Danh mục
                 </a>
             </li>
@@ -50,28 +50,59 @@
                 </p>
             </div>
 
-            {{-- Actions --}}
-            <div class="d-flex gap-3">
-                <a href="{{ url()->previous() }}"
-                   class="btn btn-outline-secondary">
+            {{-- ADD TO CART --}}
+            <div class="add-cart-card">
+
+                <form action="{{ route('cart.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                    <div class="row align-items-center g-3">
+
+                        {{-- Quantity --}}
+                        <div class="col-auto">
+                            <div class="qty-wrapper">
+                                <button type="button" class="qty-btn" onclick="changeQty(-1)">−</button>
+                                <input type="number"
+                                       id="qty"
+                                       name="quantity"
+                                       value="1"
+                                       min="1">
+                                <button type="button" class="qty-btn" onclick="changeQty(1)">+</button>
+                            </div>
+                        </div>
+
+                        {{-- Add cart --}}
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-cart">
+                                🛒 Thêm vào giỏ
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                @if(session('success'))
+                    <div class="alert alert-success mt-3 mb-0">
+                        {{ session('success') }}
+                    </div>
+                @endif
+            </div>
+
+            {{-- Back --}}
+            <div class="mt-4">
+                <a href="{{ url()->previous() }}" class="btn btn-outline-secondary">
                     ← Quay lại
                 </a>
-
-                <a href="#"
-                   class="btn btn-primary">
-                    🛒 Thêm vào giỏ hàng
-                </a>
             </div>
-        </div>
 
+        </div>
     </div>
 </div>
 
-{{-- Custom CSS --}}
+{{-- CSS --}}
 <style>
 .product-image-wrapper {
-    border-radius: 14px;
-    overflow: hidden;
+    border-radius: 16px;
     background: #fff;
     padding: 20px;
 }
@@ -82,11 +113,83 @@
 }
 
 .price {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
 }
 
-.product-description p {
-    line-height: 1.8;
+/* Add cart box */
+.add-cart-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+
+/* Quantity */
+.qty-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.qty-wrapper input {
+    width: 60px;
+    height: 44px;
+    border: none;
+    text-align: center;
+    font-weight: 600;
+}
+
+.qty-btn {
+    width: 44px;
+    height: 44px;
+    background: #f8f9fa;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.qty-btn:hover {
+    background: #e9ecef;
+}
+
+/* Buttons */
+.btn-cart {
+    height: 44px;
+    padding: 0 28px;
+    border-radius: 12px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+    color: #fff;
+    border: none;
+}
+
+.btn-buy {
+    height: 44px;
+    padding: 0 24px;
+    border-radius: 12px;
+    border: 1px solid #0d6efd;
+    color: #0d6efd;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.btn-buy:hover {
+    background: #0d6efd;
+    color: #fff;
 }
 </style>
+
+{{-- JS --}}
+<script>
+function changeQty(val) {
+    const input = document.getElementById('qty');
+    let qty = parseInt(input.value) || 1;
+    qty += val;
+    if (qty < 1) qty = 1;
+    input.value = qty;
+}
+</script>
 @endsection

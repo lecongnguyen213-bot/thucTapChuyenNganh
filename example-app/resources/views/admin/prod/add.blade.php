@@ -15,9 +15,13 @@
                     <input type="text" name="description" class="form-control">
                     <label class="form-label">Author:</label>
                     <select name="category_id" class="form-control">
-                        @foreach($categories as $category)
+                        <option value="">Chọn tác giả
+                            @foreach($categories as $category)
+                            @if($category->status==1)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endif
                         @endforeach
+                        </option>
                     </select>
                     <label class="form-label">Content: </label>
                     <input type="text" name="content" class="form-control">

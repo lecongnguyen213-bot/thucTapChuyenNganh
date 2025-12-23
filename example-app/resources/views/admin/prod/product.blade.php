@@ -1,70 +1,107 @@
-@extends('layout/admin')
+@extends('layout.admin')
+
 @section('body')
+<div class="container-fluid px-4">
 
-  <div class="card-footer small text-muted">
+    {{-- Header --}}
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">📚 BookPage – Product Management</h2>
+        <a href="{{ route('admin.product.create') }}" class="btn btn-primary">
+            + Add New Book
+        </a>
+    </div>
 
-    <table class="table">
-      <h3>Product Page</h3>
-      <a href="{{route('admin.product.create')}}" class="btn btn-primary">Add</a>
-      <thead>
-        <tr>
-          <th scope="col">#ID</th>
-          <th scope="col">Authors</th>
-          <th scope="col">BookName</th>
-          <th scope="col">Title</th>
-          <th scope="col">Image</th>
-          <th scope="col">Price</th>
-          <th scope="col">Description</th>
-          <th scope="col">Status</th>
-          <th scope="col">Update</th>
-          <th scope="col">Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        @forelse($products as $product)
-          <tr>
-            <th>{{ $product->id }}</th>
-            <td>{{ $product->category->name ?? 'No id' }}</td>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->title }}</td>
-            <td><img src="{{ asset(path: $product->image) }}" alt="" width="100"></td>
-            <td>{{ $product->price }}$</td>
-            <td>{{ $product->description }}</td>
-            <td>
-              @if ($product->status == 1)
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle text-success"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                  <path
-                    d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                </svg>
-              @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle text-secondary"
-                  viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                  <path
-                    d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                </svg>
-              @endif
-            </td>
-            <td>
-              <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-sm btn-warning">Edit
-              </a>
-            </td>
-            <td>
-              <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST"
-                onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?');">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-              </form>
-            </td>
-          </tr>
-        @empty
-          <h3>Chưa có dữ liệu</h3>
-        @endforelse
+    {{-- Table Card --}}
+    <div class="card shadow-sm">
+        <div class="card-body">
 
-      </tbody>
-    </table>
-  </div>
+            <div class="table-responsive">
+                <table class="table align-middle table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>#ID</th>
+                            <th>Author</th>
+                            <th>Book Name</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Price</th>
+                            <th>Description</th>
+                            <th>Status</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @forelse($products as $product)
+                            <tr>
+                                <td class="fw-semibold">{{ $product->id }}</td>
+                                <td>{{ $product->category->name ?? 'N/A' }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->title }}</td>
+
+                                {{-- Image --}}
+                                <td>
+                                    <img src="{{ asset($product->image) }}"
+                                         class="rounded shadow-sm"
+                                         width="70"
+                                         alt="{{ $product->name }}">
+                                </td>
+
+                                {{-- Price --}}
+                                <td class="text-danger fw-bold">
+                                    {{ number_format($product->price) }} $
+                                </td>
+
+                                {{-- Description --}}
+                                <td class="text-muted" style="max-width: 220px;">
+                                    {{ Str::limit($product->description, 80) }}
+                                </td>
+
+                                {{-- Status --}}
+                                <td>
+                                    @if ($product->status == 1)
+                                        <span class="badge bg-success">
+                                            Active
+                                        </span>
+                                    @else
+                                        <span class="badge bg-secondary">
+                                            Inactive
+                                        </span>
+                                    @endif
+                                </td>
+
+                                {{-- Action --}}
+                                <td class="text-center">
+                                    <a href="{{ route('admin.product.edit', $product->id) }}"
+                                       class="btn btn-sm btn-warning">
+                                        Edit
+                                    </a>
+
+                                    <form action="{{ route('admin.product.destroy', $product->id) }}"
+                                          method="POST"
+                                          class="d-inline"
+                                          onsubmit="return confirm('Bạn có chắc muốn xóa sản phẩm này?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger">
+                                            Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" class="text-center text-muted py-4">
+                                    Chưa có dữ liệu
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 @endsection

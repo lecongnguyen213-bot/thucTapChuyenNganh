@@ -1,62 +1,92 @@
-@extends('layout/admin')
+@extends('layout.admin')
+
 @section('body')
+<div class="container-fluid mt-4">
 
-  <div class="card-footer small text-muted">
+    <div class="card shadow-sm">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                <i class="bi bi-people"></i> Author Management
+            </h5>
+            <a href="{{ route('admin.category.create') }}" class="btn btn-primary btn-sm">
+                <i class="bi bi-plus-circle"></i> Add Author
+            </a>
+        </div>
 
-    <table class="table">
-      <h3>Author Management Page </h3>
-      <a href="{{route('admin.category.create')}}" class="btn btn-primary">Add</a>
-      <thead>
-        <tr>
-          <th scope="col">#ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Image</th>
-          <th scope="col">Status</th>
-          <th scope="col">Update Value</th>
-          <th scope="col">Delete Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        @forelse($categories as $category)
-          <tr>
-            <th>{{ $category->id }}</th>
-            <td>{{ $category->name }}</td>
-            <td><img src="{{ asset($category->image) }}" alt="" width="100"></td>
-            <td>
-              @if ($category->status == 1)
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-check-circle text-success" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                  <path
-                    d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                </svg>
-              @else
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                  class="bi bi-check-circle text-secondary" viewBox="0 0 16 16">
-                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-                  <path
-                    d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05" />
-                </svg>
-              @endif
-            </td>
-            <td>
-              <a href="{{ route('admin.category.edit', $category->id) }}" class="btn btn-sm btn-warning">Edit
-              </a>
-            </td>
-            <td>
-              <form action="{{ route('admin.category.destroy', $category->id) }}" method="POST"
-                onsubmit="return confirm('Bạn có chắc muốn xóa danh mục này?');">
-                @csrf
-                @method('DELETE')
-                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-              </form>
-            </td>
-          </tr>
-        @empty
-          <h3>Chưa có dữ liệu</h3>
-        @endforelse
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th width="5%">#ID</th>
+                            <th>Name</th>
+                            <th width="15%">Image</th>
+                            <th width="10%">Status</th>
+                            <th width="20%">Actions</th>
+                        </tr>
+                    </thead>
 
-      </tbody>
-    </table>
-  </div>
+                    <tbody>
+                        @forelse($categories as $category)
+                            <tr>
+                                <td>{{ $category->id }}</td>
+
+                                <td class="text-start">
+                                    <strong>{{ $category->name }}</strong>
+                                </td>
+
+                                <td>
+                                    <img src="{{ asset($category->image) }}"
+                                         class="rounded-circle border"
+                                         width="60" height="60"
+                                         style="object-fit: cover">
+                                </td>
+
+                                <td>
+                                    @if ($category->status == 1)
+                                        <span class="badge bg-success">
+                                            Active
+                                        </span>
+                                    @else
+                                        <span class="badge bg-secondary">
+                                            Inactive
+                                        </span>
+                                    @endif
+                                </td>
+
+                                <td>
+                                    <a href="{{ route('admin.category.edit', $category->id) }}"
+                                       class="btn btn-sm btn-warning me-1">
+                                        <i class="bi bi-pencil-square"></i> Edit
+                                    </a>
+
+                                    <form action="{{ route('admin.category.destroy', $category->id) }}"
+                                          method="POST"
+                                          class="d-inline"
+                                          onsubmit="return confirm('Bạn có chắc muốn xóa author này?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger">
+                                            <i class="bi bi-trash"></i> Delete
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-muted text-center">
+                                    Chưa có dữ liệu
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card-footer text-muted small">
+            Total Authors: {{ $categories->count() }}
+        </div>
+    </div>
+</div>
 @endsection

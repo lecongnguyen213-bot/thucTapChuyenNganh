@@ -103,7 +103,7 @@
     </div>
 
     <div class="mt-5 d-flex justify-content-center">
-        {{ $posts->links() }}
+        {{ $posts->links('pagination::bootstrap-5') }}
     </div>
 
 </div>

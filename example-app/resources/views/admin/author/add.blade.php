@@ -1,28 +1,64 @@
-@extends('layout/admin')
+@extends('layout.admin')
+
 @section('body')
-   <div class="container">
-      <div class="row">
-         <form action="{{ route('admin.category.store') }}" method="POST">
-            @csrf
-            <div class="mb-3">
-               <label class="form-label">Author name</label>
-               <input type="text" name="name" class="form-control" placeholder="Author name">
-               <label class="form-label">image</label>
-               <input type="text" name="image" class="form-control" id="image">
-               <select name="status" class="form-control" id="">
-                  <option value="1" selected>On</option>
-                  <option value="0">Off</option>
-               </select>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="card shadow-sm">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-person-plus"></i> Add New Author
+                    </h5>
+                </div>
+
+                <form action="{{ route('admin.category.store') }}" method="POST">
+                    @csrf
+
+                    <div class="card-body">
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Author Name</label>
+                            <input type="text"
+                                   name="name"
+                                   class="form-control"
+                                   placeholder="Enter author name"
+                                   required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Image URL / Path</label>
+                            <input type="text"
+                                   name="image"
+                                   class="form-control"
+                                   placeholder="images/authors/author.jpg">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Status</label>
+                            <select name="status" class="form-select">
+                                <option value="1" selected>Active</option>
+                                <option value="0">Inactive</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="card-footer d-flex justify-content-between">
+                        <a href="{{ route('admin.category.index') }}"
+                           class="btn btn-secondary">
+                            <i class="bi bi-arrow-return-left"></i> Back
+                        </a>
+
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Save
+                        </button>
+                    </div>
+                </form>
+
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{route('admin.category.index')}}" class="btn btn-secondary"><svg xmlns="http://www.w3.org/2000/svg"
-                  width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                     d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5" />
-               </svg>Back</a>
-         </form>
-
-      </div>
-   </div>
+        </div>
+    </div>
+</div>
 @endsection

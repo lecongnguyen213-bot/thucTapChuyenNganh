@@ -41,13 +41,13 @@
 											class="icon icon-facebook"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-twitter"></i></a>
+									<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-twitter"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-youtube-play"></i></a>
+									<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-youtube-play"></i></a>
 								</li>
 								<li>
-									<a href="#"><i class="icon icon-behance-square"></i></a>
+									<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-behance-square"></i></a>
 								</li>
 							</ul>
 						</div><!--social-links-->
@@ -265,13 +265,13 @@
 													class="icon icon-facebook"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-twitter"></i></a>
+											<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-twitter"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-youtube-play"></i></a>
+											<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-youtube-play"></i></a>
 										</li>
 										<li>
-											<a href="#"><i class="icon icon-behance-square"></i></a>
+											<a href="https://www.facebook.com/tuongvy.pham21"><i class="icon icon-behance-square"></i></a>
 										</li>
 									</ul>
 								</div>

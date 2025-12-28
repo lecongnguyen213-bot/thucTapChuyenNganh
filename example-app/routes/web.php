@@ -9,6 +9,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\admin\PageController as AdminPageController;
+use App\Http\Controllers\Admin\PostController;
 // Trang chủ
 // Route::get('/', function () {
 //     return view('index');
@@ -48,4 +50,8 @@ Route::group([
     Route::get('/', [AdminController::class, 'index'])->name('index');
    Route::get('/dashboard1', [DashboardController::class, 'index'])
     ->name('dashboard1');
+    //admin page controller
+    Route::resource('pages', AdminPageController::class);
+    Route::resource('posts', PostController::class);
+     Route::resource('contacts', App\Http\Controllers\Admin\ContactController::class);
 });

@@ -76,7 +76,7 @@
           <div class="card about-card shadow-sm border-0 mb-4">
             <div class="card-body p-4 p-md-5">
               <div class="about-content">
-                Contact: {!! $p->content !!}
+                {{$p->slug}}: {!! $p->content !!}
               </div>
 
             </div>

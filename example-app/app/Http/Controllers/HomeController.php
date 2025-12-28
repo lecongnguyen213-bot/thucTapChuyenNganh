@@ -82,7 +82,6 @@ class HomeController extends Controller
             unset($cart[$id]);
             session()->put('cart', $cart);
         }
-
         return redirect()->route('cart')->with('success', 'Đã xóa sản phẩm');
     }
 

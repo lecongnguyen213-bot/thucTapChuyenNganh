@@ -26,7 +26,7 @@
 										libero ipsum enim pharetra hac.</p>
 									<div class="item-price">$ 45.00</div>
 									<div class="btn-wrap">
-										<a href="#" class="btn-accent-arrow">shop it now <i
+										<a href="http://localhost:8000/category/19" class="btn-accent-arrow">shop it now <i
 												class="icon icon-ns-arrow-right"></i></a>
 									</div>
 								</div>
@@ -43,7 +43,7 @@
 		</div>
 	</section>
 
-	<section id="popular-books" class="bookshelf py-5 my-5">
+	<!-- <section id="popular-books" class="bookshelf py-5 my-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -461,7 +461,7 @@
 
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<section id="quotation" class="align-center pb-5 mb-5">
 		<div class="inner-content">
@@ -473,7 +473,7 @@
 			</blockquote>
 		</div>
 	</section>
-<section id="special-offer" class="bookshelf pb-5 mb-5">
+<!-- <section id="special-offer" class="bookshelf pb-5 mb-5">
 
     <div class="section-header align-center">
         <div class="title">
@@ -557,6 +557,6 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 @endsection
